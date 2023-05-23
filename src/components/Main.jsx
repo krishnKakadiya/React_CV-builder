@@ -115,7 +115,7 @@ const handleTextEdit = (e, section, index = 0, input) => {
 
 
   return (
-    <div className='main'>
+    <div className='main mt-5'>
      <CVBuilder
      education={education}
      practice={practice}

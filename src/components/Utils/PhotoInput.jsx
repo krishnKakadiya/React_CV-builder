@@ -1,7 +1,9 @@
 import React from 'react';
 // import AddIcons  from "../../assets/add.png";
 
-const PhotoInput = () => {
+const PhotoInput = (props) => {
+
+  const {onChange} = props
   return (
     <label>
     choose Photo
