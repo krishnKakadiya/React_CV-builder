@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import CVBuilder from './CVbuilder/CVBuilder'
 import uniquid from 'uniqid';
+import CVBuilder from './CVbuilder/CVBuilder'
+import CvPreview from './CvPreview/CvPreview';
 
 const Main = () => {
 
@@ -79,11 +80,36 @@ const deleteItem = (section, id) => {
     }
 }
    
-const handleTextEdit = (e)=> {
+const handleTextEdit = (e, section, index = 0, input) => {
+    if (section === 'profile') {
+      const items = [...profile]
+      items[index][input] = e.target.value
+      
+      setProfile(items)
+      console.log(items);
+    } else if (section === 'education') {
+      const items = [...education]
+      items[index][input] = e.target.value
+      setEducation(items)
+      console.log(items);
+    } else {
+      const items = [...practice]
+      items[index][input] = e.target.value
+      setPractice(items)
+      console.log(items);
+    }
+  }
 
-
-
-}
+  const handlePhotoEdit = e => {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+    const items = [...profile]
+    reader.onload = () => {
+      items[0].photo = reader.result
+      setProfile(items)
+    }
+    reader.readAsDataURL(file)
+  }
 
      
 
@@ -96,7 +122,9 @@ const handleTextEdit = (e)=> {
      addItem={addItem}
      delteItem={deleteItem}
      handleTextEdit={handleTextEdit}
+     handlePhotoEdit={handlePhotoEdit}
       />
+      <CvPreview  profile={profile} education={education} practice={practice} />
     </div>
   )
 }

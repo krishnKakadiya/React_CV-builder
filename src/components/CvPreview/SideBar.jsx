@@ -1,8 +1,8 @@
 import React from 'react'
 import EducationItem from './EducationItem'
-import { ReactComponent as PhoneIcon } from '../../assets/phone.svg'
-import { ReactComponent as AddressIcon } from '../../assets/home.svg'
-import { ReactComponent as EmailIcon } from '../../assets/email.svg'
+// import Phone from "../../assets/Phome.png"
+// import Email from "../../assets/email.png"
+// import Address from "../../assets/address.png"
 
 const SideBar = props => {
   const { profile, items } = props
@@ -14,15 +14,15 @@ const SideBar = props => {
         <div className='items'>
           <div className='item'>
             <div className='icon-title'>
-              <PhoneIcon />
+              {/* <Phone /> */}
               {profile[0].phone}
             </div>
             <div className='icon-title'>
-              <EmailIcon />
+              {/* <Email /> */}
               {profile[0].email}
             </div>
             <div className='icon-title'>
-              <AddressIcon />
+              {/* <Address /> */}
               {profile[0].address}
             </div>
           </div>
